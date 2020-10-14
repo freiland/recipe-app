@@ -1,6 +1,6 @@
 <h1><%= @recipe.name %></h1>
 <h3><%= @recipe.tag %></h3>
-<h1><%= @recipe.rating %></h1>
+<h3>rating: <%= @recipe.rating %>/10</h3>
 <h3><%= @recipe.instructions %></h3>
 
 <% if @recipe.ingredients.any? %>
@@ -17,7 +17,7 @@
   <p>No ingredients added yet for this recipe.</p>
 <% end %>
 
-<p><%= link_to "Add an ingredient", new_ingredient_path(@recipe) %></p>
+<p><%= link_to "Add an ingredient", new_recipe_ingredient_path(@recipe) %></p>
 
 <p><%= link_to "Edit", edit_recipe_path(@recipe) %></p>
 <p><%= link_to "Delete recipe", recipe_path(@recipe),
