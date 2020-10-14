@@ -1,0 +1,12 @@
+<h1>new recipe</h1>
+
+<% if @recipe.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @recipe.errors.full_messages.each do |recipe| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render "layouts/_recipe_form" %>
