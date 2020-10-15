@@ -5,6 +5,11 @@ class RecipesController < ApplicationController
     render :index
   end
 
+  def find
+    @search_result = Recipe.has_with(params[:search_term])
+    render :index
+  end
+
   def new 
     @recipe = Recipe.new
     render :new

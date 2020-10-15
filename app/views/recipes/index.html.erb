@@ -1,5 +1,21 @@
 <h1>recipes</h1>
 
+<h3>Search for a recipe</h3>
+<%= form_with do |f|%>
+  <%= f.label :search_term %>
+  <%= f.text_field :search_term %>
+  <%= submit_tag("search") %>
+<% end %><br>
+
+<% if @search_result.any? %>
+  <ul>
+    <% @search_result.each do |search_result| %>
+    <li><%= search_result.name %></li> 
+    <% end %>
+  </ul>
+<% end %>
+
+
 <% if @recipes.any? %>
   <ul>
     <% @recipes.each do |recipe| %>
@@ -9,6 +25,7 @@
 <% else %>
   <p>There are no recipes yet.</p>
 <% end %>
+
 
 
 <p><%= link_to "Create new recipe", new_recipe_path %></p>
