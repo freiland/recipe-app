@@ -2,13 +2,20 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+    # @search_term = (params[:search_term])
+    
+    if :search_term 
+      @search_term = (params[:search_term])
+
+      @search_result = Recipe.has_with(@search_term)
+    end
     render :index
   end
 
-  def find
-    @search_result = Recipe.has_with(params[:search_term])
-    render :index
-  end
+  # def find
+  #   @search_result = Recipe.has_with(params[:search_term])
+  #   render :index
+  # end
 
   def new 
     @recipe = Recipe.new
