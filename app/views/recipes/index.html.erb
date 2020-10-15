@@ -12,10 +12,10 @@
 
 <%= form_tag(recipes_path, method: 'get') do %>
   <%= text_field_tag(:search_term, params[:search_term]) %>
-  <%= submit_tag("Search", name:'') %>
+  <%= submit_tag("Search", name:nil) %>
 <% end %>
 
-<% if @search_result.any? %>
+<% if @search_result %>
   <ul>
     <% @search_result.each do |result| %>
     <li><%=result.name %></li> 

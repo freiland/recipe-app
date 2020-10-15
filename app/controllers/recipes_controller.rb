@@ -2,16 +2,15 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all  
-    # @top_rated = Recipe.rating.first.name 
     @top_rated = Recipe.rating
-
-     
-    #if :search_term 
-      @search_term = (params[:search_term])
-      if @search_term != ''
-      @search_result = Recipe.has_with(@search_term)
-      end
-    #end
+    if params[:search_term]
+      @search_term = (params[:search_term]) 
+        if @search_term != ""
+          
+        @search_result = Recipe.has_with(@search_term)
+        end
+    end
+    
     render :index
   end
 
